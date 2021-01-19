@@ -67,7 +67,14 @@ iframe {
   text-align: center;
 }
 .form-signin .card{
+  width: 400px;
+  height: 500px;
   margin: auto;
+ 
+}
+.form-signin .card form input{
+  margin: 10px auto 10px auto;
+  
 }
 
 .field_with_errors input{
