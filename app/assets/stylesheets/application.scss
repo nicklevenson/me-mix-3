@@ -68,5 +68,8 @@ iframe {
 }
 .form-signin .card{
   margin: auto;
+}
 
+.field_with_errors input{
+  border: solid thin red;
 }

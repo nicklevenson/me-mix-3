@@ -16,13 +16,13 @@ class User < ApplicationRecord
 
 
   def self.create_from_omniauth(auth)
-    user = self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
+      self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
       u.image = auth['info']['image']
       u.username = auth['info']['name']
       u.email = auth['info']['email']
       u.password = SecureRandom.hex(16)
     end
-    user
+  
   end
   def follow(other_user)
     follow_relationships.create(follower_id: self.id, followed_id: other_user.id)

@@ -1,12 +1,3 @@
 <h3>Feeling mixed up? Create an account!</h3>
-<h1>Errors</h1>
-<% if @user.errors.any? %> 
-    
-  <% @user.errors.each do |msg| %>
-   
-    <h1>HERE</h1>
-    <h4><%= msg.full_message %></h4>
-  <% end %>
-<% end %>
 
 <%=render partial: 'form', locals: {user: @user}%>

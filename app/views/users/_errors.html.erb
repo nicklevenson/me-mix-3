@@ -1,7 +1,8 @@
-<h1>Errors</h1>
-<% if user.errors.any? %>      
+
+<% if user.errors.any? %>  
+  <div class="alert alert-info">
   <% user.errors.full_messages.each do |msg| %>
-    <h1>HERE</h1>
-    <h4><%= msg %></h4>
+    <div class="field-with-errors "><%= msg %></div>
   <% end %>
+  </div>
 <% end %>
