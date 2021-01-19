@@ -10,12 +10,13 @@
     <div class="card-container">
       <div class="card">
         <%=render partial: 'contents/content', locals: {content: content}%>
+      </div>
+    </div>
         <%content.specific_notes(mix).each do |note|%>
           <%=render partial: 'notes/note', locals: {note: note}%>
         <%end%>
         <br>
-      </div>
-    </div>
+     
   <%end%>
  
   <%=no_contents(mix)%>
