@@ -1,0 +1,56 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.comments-container {
+  width: 95%;
+  margin: auto;
+  border: solid thin lightgray;
+  border-radius: 5px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.comment {
+  width: 95%;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  border: solid thin lightgrey;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.new-comment-container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.new-comment { 
+  border: solid thin lightgray;
+  max-width: 95%;
+  min-width: 250px;
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+trix-editor{
+  display: inline-block;
+  width: 90%;
+  min-height: 50px !important;
+}
+
+.comment-button {
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  bottom: 0;
+}
+
+.comment img {
+  height: 50px !important
+}

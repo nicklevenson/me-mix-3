@@ -1,0 +1,10 @@
+
+  <h3><%=movie[:title]%> - <%=movie[:date]%>
+  <%if movie[:creators]%>
+    <%movie[:creators].each do |creator|%>
+      <h4><%=creator%></h4>
+    <%end%>
+  <%end%>
+  </h3>
+  <a href="<%=movie[:url]%>" target="_blank"><img src="<%=movie[:image]%>" width="100%" alt="movie poster"></a>
+  <p><%=movie[:description]%></p>

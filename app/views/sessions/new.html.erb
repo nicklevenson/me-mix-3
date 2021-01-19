@@ -1,0 +1,18 @@
+<div class="form-signin">
+  <div class="card">
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
+    <%=form_with url: '/login', method: :post do |f|%>
+      <%=f.text_field :email, class:"form-control", placeholder: "Your Email"%><br>
+      <%=f.password_field :password, class:"form-control", placeholder: "Password"%><br>
+      <%=f.submit 'Login'%>
+    <%end%>
+    <%= button_to 'Login with Google', '/auth/google_oauth2' %>
+
+    <%=button_to "Log in with Facebook",'/auth/facebook'%>
+  
+  </div>
+</div>

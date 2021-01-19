@@ -1,0 +1,7 @@
+<h1>Errors</h1>
+<% if user.errors.any? %>      
+  <% user.errors.full_messages.each do |msg| %>
+    <h1>HERE</h1>
+    <h4><%= msg %></h4>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+
+  <h2><%=book[:title]%></h2>
+  <%if book[:creators]%>
+    <%book[:creators].each do |creator|%>
+      <h4><%=creator%></h4>
+    <%end%>
+  <%end%>
+  <a href="<%=book[:url]%>" target="_blank"><img src="<%=book[:image]%>"></a>
+  <p><%=book[:description]%></p>

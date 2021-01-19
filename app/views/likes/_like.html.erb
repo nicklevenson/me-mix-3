@@ -1,0 +1,9 @@
+<div class="like">
+  <%if current_user && current_user.likes.any? {|like| like.mix_id == mix.id}%>
+    <%=button_to "Unlike", like_path(mix.likes.find_by(user_id: current_user.id), info: {lasturl: request.url}), method: :delete %>
+  <%elsif current_user && !(current_user.likes.any? {|like| like.mix_id == mix.id})%>
+    <%=button_to "Like Mix", likes_path(info: {mix_id: mix.id, user_id: current_user.id, lasturl: request.url}), method: :post%>
+  <%else%>
+    <%=button_to "Like Mix", '/login', method: :get%>
+  <%end%>
+</div>

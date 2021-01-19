@@ -1,0 +1,12 @@
+<%=render partial: 'users/user', locals: {user: @user}%>
+
+<h2>Mixes  <%=new_link%></h2> 
+<div class="album py-5">
+  <%@mixes.each do |m|%>
+    <div class="card-container">
+      <div class="card">
+        <%=render partial: 'mix', locals: {mix: m}%>
+      </div>
+    </div>
+  <%end%>
+</div>

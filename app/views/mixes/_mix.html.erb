@@ -1,0 +1,33 @@
+<div class="edit-delete">
+  <%=edit_link(mix)%><%=delete_link(mix)%>
+</div>
+<div class="mix-container">
+  <h3><%=link_to mix.title, user_mix_path(mix.user, mix)%> by <%=link_to mix.user.username, user_path(mix.user)%></h3>
+  <%=render partial: 'likes/like', locals: {mix: mix}%>
+  <i><%=mix.description%></i>
+  <br>
+  <%mix.contents.each do |content|%>
+  <div class="card-container">
+      <div class="card">
+        <%=render partial: 'contents/content', locals: {content: content}%>
+        <%content.specific_notes(mix).each do |note|%>
+          <%=render partial: 'notes/note', locals: {note: note}%>
+        <%end%>
+        <br>
+      </div>
+    </div>
+  <%end%>
+ 
+  <%=no_contents(mix)%>
+  <div class="comments-container">
+    <h5>Comments:</h5>  
+      <div class="comments">
+        <%= turbo_stream_from "#{mix.id}comments" %>
+        <%= turbo_frame_tag "#{mix.id}comments" do %>
+          <%=render mix.comments%>
+        <%end%>
+      </div>
+    <div class="new-comment-container">
+      <%= render partial: 'comments/new', locals: {mix: mix}%>
+    </div>
+</div>

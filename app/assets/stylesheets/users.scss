@@ -1,0 +1,26 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-container .card{
+  width: 450px;
+  overflow: scroll;
+}
+.image {
+  width: 160px;
+}
+.edit-user-image .row{
+  width: 160px;
+}
+
+.edit-user-image input {
+  display: inline-block;
+  font-size: 5px;
+  padding: 0;
+}
+
+.profile-image {
+
+  height: 120px;
+  overflow: hidden;
+}

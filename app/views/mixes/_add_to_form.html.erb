@@ -1,0 +1,36 @@
+<div class="add-to-form">
+
+  <%flash.each do |type, msg|%>
+    <div>
+      <%= msg %>
+    </div>
+  <%end%>
+
+  <%if current_user%>
+    <%=form_with model: current_user.mixes.build, url: user_mixes_path(current_user) do |f|%>
+      <input type="hidden" name="lasturl" value="<%=request.url%>">
+      <%=fields_for Content.new do |c|%>
+        <%=c.hidden_field :data_type, value: media[:data_type]%>
+        <%=c.hidden_field :title, value: media[:title]%>
+        <%media[:creators].each do |creator|%>
+          <input type="hidden" name="content[creators][]" value="<%=creator%>">
+        <%end unless media[:creators].nil?%>
+        <%=c.hidden_field :date, value: media[:date]%>
+        <%=c.hidden_field :image, value: media[:image]%>
+        <%=c.hidden_field :url, value: media[:url]%>
+        <%=c.hidden_field :description, value: media[:description]%>
+      <%end%>
+
+        Add To: <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off', placeholder: "new or existing mix"%> 
+      <datalist id="title">
+        <%current_user.mixes.each do |m|%>
+          <option value="<%=m.title%>"></option>
+        <%end%>
+      </datalist>
+        <%=f.submit 'Add', data: { disable_with: false}%>
+    <%end%>
+  <%else%>
+    <br>
+    <%=link_to 'Login to add to a mix!', '/login'%>
+  <%end%>
+</div>

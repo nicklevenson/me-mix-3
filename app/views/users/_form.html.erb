@@ -1,0 +1,13 @@
+<div class="form-signin">
+  <div class="card">
+  <%=profile_image(user)%>
+    <%=form_for user do |f|%>
+      <%=f.file_field :avatar, class: "col-sm-9"%>
+      <%=f.text_field :username, class:"form-control", placeholder: "Memix Username" %> <br>
+      <%=f.text_field :email, class:"form-control", placeholder: "Your Email" %> <br>
+      <%=f.password_field :password, class:"form-control", placeholder: "Password" %> <br>
+      <%=f.password_field :password_confirmation, class:"form-control", placeholder: "Password Confirmation" %> <br>
+      <%=f.submit%>
+    <%end%>
+  </div>
+</div>

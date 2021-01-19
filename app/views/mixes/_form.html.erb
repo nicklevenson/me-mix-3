@@ -1,0 +1,31 @@
+<%if @mix.errors%>
+  <%@mix.errors.full_messages.each do |message|%>
+      <h4><%=message%></h4>
+  <%end%>
+<%end%>
+
+<%=form_for [current_user, @mix] do |f|%>
+  <%=f.label :title%>
+  <%=f.text_field :title%>
+  <%=f.label :description%>
+  <%=f.text_area :description%>
+  <br>
+  <%@mix.contents.each do |c|%>
+    <%=render_piece(c)%>
+    <%=link_to "Remove from mix", content_path(c, mix_id: @mix.id, lasturl: request.url), method: :delete%>
+    <%=f.fields_for :notes, c.specific_notes(@mix) do |note_fields|%>
+      <%=note_fields.label "Edit note:"%>
+      <%=note_fields.rich_text_area :text%>
+      <%=note_fields.hidden_field :content_id, value: c.id%>
+      <%=link_to "Delete note", note_path(note_fields.object.id, mix_id: @mix.id, lasturl: request.url), method: :delete%>
+    <%end%>
+    <%=f.fields_for :notes, @mix.notes.build do |note_fields|%>
+      <%=note_fields.label "New note:"%>
+      <%=note_fields.rich_text_area :text%>
+      <%=note_fields.hidden_field :content_id, value: c.id%>
+    <%end%>
+  
+  <%end%>
+  <%=f.submit%>
+<%end%>
+
