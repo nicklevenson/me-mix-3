@@ -1,7 +1,7 @@
 
   <div class="new-comment">
     <%if current_user%>
-      <%=form_for mix.comments.build, remote: true  do |f|%>
+      <%=form_for mix.comments.build do |f|%>
         <%=f.hidden_field :mix_id, value: mix.id%>
         <%=f.rich_text_area :content, required: true, id: "trix#{mix.id}", class: "comment-editor", placeholder: "New Comment"%>
         <%= button_tag( :class => "comment-button") do %>
