@@ -1,21 +1,18 @@
-
-  
-    <%= turbo_frame_tag dom_id(comment) do %>
-    <div class="comment">
-      <div class="row">
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="comment">
+    <div class="row">
         <div class="col-sm">
           <%=link_to(comment.user.username, user_path(comment.user), method: :get,'data-no-turbolink' => true)%>
         </div>
         <div class="col-sm">
           <%=delete_comment(comment)%>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm">
-          <%=comment.content%>
-        </div>
-        
-      </div>
     </div>
-    <%end%>
+    <div class="row">
+      <div class="col-sm">
+        <%=comment.content%>
+      </div>    
+    </div>
+  </div>
+<%end%>
     
