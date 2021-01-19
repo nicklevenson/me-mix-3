@@ -7,7 +7,7 @@
   <i><%=mix.description%></i>
   <br>
   <%mix.contents.each do |content|%>
-  <div class="card-container">
+    <div class="card-container">
       <div class="card">
         <%=render partial: 'contents/content', locals: {content: content}%>
         <%content.specific_notes(mix).each do |note|%>
