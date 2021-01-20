@@ -3,12 +3,12 @@ class LikesController < ApplicationController
   def create
     params.inspect
     Like.create(like_params)
-    redirect_to params[:info][:lasturl]
+    redirect_to request.referrer
   end
 
   def destroy
     Like.find(params[:id]).destroy
-    redirect_to params[:info][:lasturl]
+    redirect_to request.referrer
   end
 
   private

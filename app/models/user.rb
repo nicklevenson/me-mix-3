@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 7}
 
 
+
   def self.create_from_omniauth(auth)
       self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
       u.image = auth['info']['image']
@@ -33,6 +34,10 @@ class User < ApplicationRecord
 
   def following_mixes
     mixes = Mix.where(user: followed_users)
+  end
+
+  def self.sort_by_followers
+    all.sort_by{|u| u.followed_by.count}.reverse
   end
 
   def feed 
