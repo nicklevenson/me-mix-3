@@ -8,7 +8,6 @@
 
   <%if current_user%>
     <%=form_with model: current_user.mixes.build, url: user_mixes_path(current_user) do |f|%>
-      <input type="hidden" name="lasturl" value="<%=request.url%>">
       <%=fields_for Content.new do |c|%>
         <%=c.hidden_field :data_type, value: media[:data_type]%>
         <%=c.hidden_field :title, value: media[:title]%>
@@ -30,7 +29,6 @@
         <%=f.submit 'Add', data: { disable_with: false}%>
     <%end%>
   <%else%>
-    <br>
-    <%=link_to 'Login to add to a mix!', '/login'%>
+    <%=link_to 'Login to add to a mix!', '/login', class:"btn-sm"%>
   <%end%>
 </div>

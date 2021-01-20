@@ -9,7 +9,7 @@
                     <%end%>
                 </div>
                 <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0"><%=user.username%></h4>
+                    <h4 class="mb-0 mt-0"><%=link_to user.username, user_mixes_path(user)%></h4>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div class="d-flex flex-column"> <span class="articles">Mixes</span> <span class="number1"><%=user.mixes.count%></span> </div>
                         <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2"><%=user.followed_by.count%></span> </div>
