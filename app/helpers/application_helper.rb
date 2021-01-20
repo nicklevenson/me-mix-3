@@ -12,4 +12,8 @@ module ApplicationHelper
       redirect_to '/login'
     end
   end
+
+  def people_to_follow
+    render partial: 'users/user', collection: User.all
+  end
 end
