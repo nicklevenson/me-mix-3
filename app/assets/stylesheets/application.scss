@@ -80,3 +80,12 @@ iframe {
 .field_with_errors input{
   border: solid thin red;
 }
+
+.people-to-follow {
+  margin: auto;
+  white-space: nowrap;
+  height: 300px !important;
+  width: 90%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}

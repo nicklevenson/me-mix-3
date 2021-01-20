@@ -2,9 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
 .user-container .card{
   width: 450px;
-  overflow: scroll;
+  overflow: hidden;
+  margin: 0;
 }
 .image {
   width: 160px;

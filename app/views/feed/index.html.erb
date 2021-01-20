@@ -1,7 +1,15 @@
-<div class="album py-5">
-  <%@mixes.each do |m|%>
-    <%=render partial: 'mixes/mix_preview', locals: {mix: m}%>
-  <%end%>
-  <%=no_feed%>
-  <%=people_to_follow%>
+<div class="album feed">
+  <div class="row">
+    <div class="col-md-12">
+      <%@mixes.each do |m|%>
+        <%=render partial: 'mixes/mix_preview', locals: {mix: m}%>
+      <%end%>
+      <%=no_feed%>
+    </div>
+  </div>
+  <div class="row people-to-follow">
+    <div class="col-md-12">
+      <%=people_to_follow%>
+    </div>
+  </div>
 </div>

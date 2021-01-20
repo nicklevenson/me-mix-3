@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def people_to_follow
-    render partial: 'users/user', collection: User.sort_by_followers
+    render partial: 'users/user', collection: (User.sort_by_followers - [current_user])
   end
 end
