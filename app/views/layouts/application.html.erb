@@ -20,10 +20,10 @@
       </div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="nav nav-tabs mx-auto">
+          <%=link_to 'Feed', '/feed', class: 'nav-item nav-link'%>
           <%=link_to 'Home', '/', class: 'nav-item nav-link active' if request.fullpath == '/'%>
-          <%=link_to 'Home', '/', class: 'nav-item nav-link' if request.fullpath != '/'%>
           <%=link_to 'Profile', user_mixes_path(current_user), class: 'nav-item nav-link' if current_user%>
-  
+
 
           <%=link_to 'Logout', '/logout', class: 'nav-item nav-link' if current_user%>
           <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>

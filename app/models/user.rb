@@ -22,7 +22,6 @@ class User < ApplicationRecord
       u.email = auth['info']['email']
       u.password = SecureRandom.hex(16)
     end
-  
   end
   def follow(other_user)
     follow_relationships.create(follower_id: self.id, followed_id: other_user.id)
