@@ -1,9 +1,7 @@
 class WelcomeController < ApplicationController
   include WelcomeHelper
   def index
-
-    @results = filter || []
-      
+    @results = filter || []   
   end
 end
 

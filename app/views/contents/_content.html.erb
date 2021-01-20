@@ -1,6 +1,11 @@
+
 <div class="content-container">
   <div class="contents">
-    <%=render_piece(content)%>
+    <div class='card-container'>
+      <div class='card'>
+        <%=render_piece(content)%>
+      </div>
+    </div>
   </div>
   <%=render partial: 'mixes/add_to_form', locals: {media: content}%>
 </div>

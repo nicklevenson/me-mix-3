@@ -30,4 +30,14 @@ class User < ApplicationRecord
   def followed_by
     User.all.select{|user| user.followed_users.include?(self)}
   end
+
+  def following_mixes
+    # followed_users.collect{|u|u.mixes}
+    mixes = Mix.where(user: followed_users)
+    # byebug
+  end
+
+  def feed 
+    (following_mixes + self.mixes)
+  end
 end
