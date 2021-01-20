@@ -22,10 +22,9 @@ class SessionsController < ApplicationController
 
   def omniauth
     @user = User.create_from_omniauth(auth)
-    byebug
+  
     if @user.valid?
       session[:user_id] = @user.id
-      flash[:message] = "You have successfully signed in"
       redirect_to user_mixes_path(@user)
     else
       flash[:message] = @user.errors.full_messages.join(", ")

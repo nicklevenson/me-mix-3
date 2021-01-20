@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
 
   def self.create_from_omniauth(auth)
-    
+      # byebug
       self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
       u.image = auth['info']['image']
       u.username = auth['info']['name']

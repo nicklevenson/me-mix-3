@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center title">Memix</h1>
+          <h1 class="text-center title"><a href="/welcome" class="nav-link">Memix</a></h1>
         </div>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -36,8 +36,8 @@
       <h1 class="text-center">Who to follow</h1>
       <div class="row people-to-follow">
         <div class="col-md-12">
-          <%=people_to_follow if current_user%>
-          <%=link_to 'Login', '/login', class: "btn-lg justify-self-center" if !current_user%>
+          <%=people_to_follow %>
+        
         </div>
       </div>
     </div>
