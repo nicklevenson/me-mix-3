@@ -14,3 +14,18 @@
 .edit-delete svg{
   font-size: 30px;
 }
+
+.mix-edit {
+
+  min-height: 500px !important;
+}
+
+.mix-edit form {
+  margin: auto;
+  max-width: 500px;
+  min-height: 100px !important;
+}
+
+.mix-edit .trix-content {
+  min-height: 50px !important;
+}
