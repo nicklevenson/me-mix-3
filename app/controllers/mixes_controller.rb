@@ -10,8 +10,9 @@ class MixesController < ApplicationController
     
   end
   def create
-
+   
     @mix = current_user.mixes.find_or_create_by(mix_params)
+    @mix.description = params[:mix][:description]
     if @mix.valid?
       if params[:content]
         content =  Content.find_or_create_by(content_params)
@@ -49,7 +50,7 @@ class MixesController < ApplicationController
   private
 
   def mix_params
-    params.require(:mix).permit(:title, :description)
+    params.require(:mix).permit(:title)
   end
 
   def content_params

@@ -18,6 +18,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'hotwire-rails'
 gem 'pg'
+gem "actiontext", require: "action_text"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use sqlite3 as the database for Active Record

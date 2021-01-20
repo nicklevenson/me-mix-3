@@ -294,6 +294,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  actiontext
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   bootstrap

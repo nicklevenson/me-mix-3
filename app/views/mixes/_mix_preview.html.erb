@@ -1,6 +1,12 @@
-
+<a href="<%=user_mix_path(mix.user, mix)%>", class="mix-preview-link">
 <div class='card-container'>
-  <div class='card'>
-      <%=render partial: 'mixes/mix', locals: {mix: mix}%>
+  <div class='card bg-dark align-content-center'>
+      <div class="jumbotron">
+        <h1><%=mix.title%></h1>
+        <h5>By <%=mix.user.username%></h5>
+        <i><%=mix.description%></i>
+        <p><%=mix.likes.count%> likes</p>
+      </div>
   </div>
-</div> 
+</div>
+</a>

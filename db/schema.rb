@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_204321) do
   create_table "mixes", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.string "description"
     t.boolean "public"
     t.string "background_color"
     t.string "font_color"
