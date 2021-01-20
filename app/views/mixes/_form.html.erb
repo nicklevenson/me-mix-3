@@ -17,12 +17,12 @@
         <%=render_piece(c)%>
       </div>
     </div>
-        <%=link_to "Remove from mix", content_path(c, mix_id: @mix.id, lasturl: request.url), method: :delete%>
+        <%=link_to "Remove from mix", content_path(c, mix_id: @mix.id), method: :delete%>
         <%=f.fields_for :notes, c.specific_notes(@mix) do |note_fields|%>
           <%=note_fields.label "Edit note:"%>
           <%=note_fields.rich_text_area :text%>
           <%=note_fields.hidden_field :content_id, value: c.id%>
-          <%=link_to "Delete note", note_path(note_fields.object.id, mix_id: @mix.id, lasturl: request.url), method: :delete%>
+          <%=link_to "Delete note", note_path(note_fields.object.id, mix_id: @mix.id), method: :delete%>
         <%end%>
         
         <%=f.fields_for :notes, @mix.notes.build do |note_fields|%>
