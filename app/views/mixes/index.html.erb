@@ -1,8 +1,17 @@
-<%=render partial: 'users/user', locals: {user: @user}%>
-
-<h2>Mixes  <%=new_link%></h2> 
-<div class="album py-5">
-  <%@mixes.each do |m|%>
-    <%=render partial: 'mix_preview', locals: {mix: m}%>
-  <%end%>
+<div class="mix-index">
+  <div class="row">
+    <div class="col-md-12 text-center">
+    <%=render partial: 'users/user', locals: {user: @user}%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Mixes  <%=new_link%></h2> 
+      <div class="album py-5">
+        <%@mixes.each do |m|%>
+          <%=render partial: 'mix_preview', locals: {mix: m}%>
+        <%end%>
+      </div>
+    </div>
+  </div>
 </div>
