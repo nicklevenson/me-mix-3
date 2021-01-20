@@ -11,5 +11,6 @@ class Mix < ApplicationRecord
   accepts_nested_attributes_for :contents
   accepts_nested_attributes_for :notes, reject_if: proc {|attributes| attributes[:text].blank?}
 
+  scope :most_recent, -> {all.order(updated_at: :desc)}
 
 end

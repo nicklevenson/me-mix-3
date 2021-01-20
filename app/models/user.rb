@@ -32,12 +32,10 @@ class User < ApplicationRecord
   end
 
   def following_mixes
-    # followed_users.collect{|u|u.mixes}
     mixes = Mix.where(user: followed_users)
-    # byebug
   end
 
   def feed 
-    (following_mixes + self.mixes)
+    (following_mixes + self.mixes).uniq
   end
 end

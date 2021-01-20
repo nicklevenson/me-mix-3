@@ -1,3 +1,5 @@
-<%@mixes.each do |m|%>
-  <%=render partial: 'mixes/mix_preview', locals: {mix: m}%>
-<%end%>
+<div class="album py-5">
+  <%@mixes.each do |m|%>
+    <%=render partial: 'mixes/mix_preview', locals: {mix: m}%>
+  <%end%>
+</div>
