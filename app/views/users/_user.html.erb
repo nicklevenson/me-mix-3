@@ -1,7 +1,6 @@
 <div class="container mt-5 d-flex justify-content-center user-container">
     <div class="card p-3" style="height: 200px !important">
         <div class="d-flex align-items-center">
-        
             <div class="image">
                 <%=profile_image(user)%>
                 <%if user == current_user%>
@@ -17,9 +16,9 @@
                 </div>
                 
                 <%if current_user%>
-                    <%if User.find(params[:user_id]).followed_by.include?(current_user)%>
-                        <%=form_for current_user.follow_relationships.find_by(followed_id: params[:user_id]), method: :delete do |f|%>
-                            <%=f.hidden_field :followed_id, value: params[:user_id]%>
+                    <%if user.followed_by.include?(current_user)%>
+                        <%=form_for current_user.follow_relationships.find_by(followed_id: user.id), method: :delete do |f|%>
+                            <%=f.hidden_field :followed_id, value: user.id%>
                             <div class="button mt-2 d-flex flex-row align-items-center">
                                 <%=f.submit "Unfollow", class:"btn btn-sm btn-primary w-100"%>
                             </div>
@@ -27,7 +26,7 @@
                     <%else%>
                         <%=form_for FollowRelationship.new do |f|%>
                             <%=f.hidden_field :follower_id, value: current_user.id%>
-                            <%=f.hidden_field :followed_id, value: params[:user_id]%>
+                            <%=f.hidden_field :followed_id, value: user.id%>
                             <div class="button mt-2 d-flex flex-row align-items-center">
                                 <%=f.submit "Follow", class:"btn btn-sm btn-primary w-100"%>
                             </div>
