@@ -5,7 +5,7 @@
       <div class='card'>
         <%=render_piece(content)%>
       </div>
+      <%=render partial: 'mixes/add_to_form', locals: {media: content}%>
     </div>
   </div>
-  <%=render partial: 'mixes/add_to_form', locals: {media: content}%>
 </div>
