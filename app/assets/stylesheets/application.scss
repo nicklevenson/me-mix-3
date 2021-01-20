@@ -17,7 +17,9 @@
 
  @import "bootstrap";
  
-
+body {
+  overflow-x: hidden;
+}
 
  .title {
    margin: 0;

@@ -21,10 +21,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="nav nav-tabs mx-auto">
           <%=link_to 'Feed', '/', class: 'nav-item nav-link'%>
-
           <%=link_to 'Profile', user_mixes_path(current_user), class: 'nav-item nav-link' if current_user%>
-
-
           <%=link_to 'Logout', '/logout', class: 'nav-item nav-link' if current_user%>
           <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>
           <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
@@ -32,6 +29,8 @@
       </nav>
     </div>
     <%= render partial: 'welcome/search'%>
+    <br>
+    
       <%= yield %>
     <div class="jumbotron">
       <h1 class="text-center">Who to follow</h1>
