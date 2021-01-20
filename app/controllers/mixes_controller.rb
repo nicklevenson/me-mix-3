@@ -10,6 +10,7 @@ class MixesController < ApplicationController
     
   end
   def create
+
     @mix = current_user.mixes.find_or_create_by(mix_params)
     if @mix.valid?
       if params[:content]

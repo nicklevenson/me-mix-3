@@ -8,11 +8,12 @@
   <%end%>
 
   <%=form_for [current_user, @mix] do |f|%>
-    <%=f.text_field :title, placeholder: "Title", class: "form-control-lg", style: "width: 100%"%>
+    <%=f.text_field :title, placeholder: "Title", class: "form-control-lg text-center", style: "width: 100%"%>
     <br><br>
     <div class="jumbotron">
       <%=f.label :description%>
-      <%=f.rich_text_area :description%>
+      <br>
+      <%=f.text_field :description%>
     </div>
     <%@mix.contents.each do |c|%>
     <div class="jumbotron">
