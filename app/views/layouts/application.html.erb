@@ -30,9 +30,17 @@
           <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
         </div>
       </nav>
+  
     </div>
       <%= yield %>
-     
+    <div class="jumbotron">
+      <h1 class="text-center">Who to follow</h1>
+      <div class="row people-to-follow">
+        <div class="col-md-12">
+          <%=people_to_follow%>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
