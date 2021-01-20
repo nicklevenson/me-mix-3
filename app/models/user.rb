@@ -36,6 +36,7 @@ class User < ApplicationRecord
   end
 
   def feed 
-    (following_mixes + self.mixes).uniq
+    ids = (following_mixes + self.mixes).collect{|m|m.id}
+    Mix.sort_by_recent(ids)
   end
 end
