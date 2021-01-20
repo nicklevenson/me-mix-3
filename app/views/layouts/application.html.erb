@@ -36,7 +36,8 @@
       <h1 class="text-center">Who to follow</h1>
       <div class="row people-to-follow">
         <div class="col-md-12">
-          <%=people_to_follow%>
+          <%=people_to_follow if current_user%>
+          <%=link_to 'Login', '/login', class: "btn-lg justify-self-center" if !current_user%>
         </div>
       </div>
     </div>

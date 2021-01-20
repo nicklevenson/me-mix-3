@@ -12,16 +12,19 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, length: {minimum: 7}
+  validates :password, length: {in: 7..32}, :if => :password_digest_changed?
 
 
 
   def self.create_from_omniauth(auth)
+    
       self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
       u.image = auth['info']['image']
       u.username = auth['info']['name']
       u.email = auth['info']['email']
       u.password = SecureRandom.hex(16)
+      u.password_confirmation = u.password
+    
     end
   end
   def follow(other_user)
@@ -43,5 +46,8 @@ class User < ApplicationRecord
   def feed 
     ids = (following_mixes + self.mixes).collect{|m|m.id}
     Mix.sort_by_recent(ids)
+  end
+  def not_followed_yet
+    User.sort_by_followers - [self] - followed_users
   end
 end
