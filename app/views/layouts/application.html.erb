@@ -19,7 +19,6 @@
           <%=link_to 'Mix Collection', user_mixes_path(current_user), class: 'nav-item nav-link' if current_user%>
           <%=link_to 'Logout', '/logout', class: 'nav-item nav-link' if current_user%>
           <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>
-          <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
         </div>
       </nav>
       <div class="row">

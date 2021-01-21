@@ -1,3 +1,9 @@
-<h3>Feeling mixed up? Create an account!</h3>
-
-<%=render partial: 'form', locals: {user: @user}%>
+<div class="form-signin">
+  <div class="card">
+    <h3>Feeling mixed up? Create an account!</h3>
+    <%=button_to 'Create an account with Google', '/auth/google_oauth2' %>
+    <%=button_to "Create an account with Facebook",'/auth/facebook'%>
+    <h3>Or</h3>
+    <%=render partial: 'form', locals: {user: @user}%>
+  </div>
+</div>
