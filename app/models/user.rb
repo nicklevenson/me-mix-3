@@ -49,4 +49,8 @@ class User < ApplicationRecord
   def not_followed_yet
     User.sort_by_followers - [self] - followed_users
   end
+
+  def liked_mixes
+    Mix.where(likes: self.likes)
+  end
 end

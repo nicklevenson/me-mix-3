@@ -1,4 +1,4 @@
-<div class="mix-index jumbotron bg-dark">
+<div class="mix-index album ">
   <div class="row">
     <div class="col-md-12 text-center">
     <%=render partial: 'users/user', locals: {user: @user}%>
@@ -6,12 +6,20 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <h2>Mixes  <%=new_link%></h2> 
-      <div class="album py-5">
+      <h2>User Mixes</h2> 
+      <h3><%=new_link%></h3>
+      <div class="album py-5" style="width: 80%; margin: auto">
         <%@mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
       </div>
+      <h3>Liked Mixes</h3>
+      <div class="album py-5" style="width: 80%; margin: auto">
+        <%@liked_mixes.each do |m|%>
+          <%=render partial: 'mix_preview', locals: {mix: m}%>
+        <%end%>
+      </div>
+      <br>
     </div>
   </div>
 </div>
