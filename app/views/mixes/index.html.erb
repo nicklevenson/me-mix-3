@@ -3,24 +3,14 @@
     <div class="col-md-12 text-center">
       <h2><%=@user.username%>'s Collection</h2> 
       <%=render partial: 'users/user', locals: {user: @user}%>
- 
-      
-    </div>
-    
-          
+    </div>     
   </div>
+
   <div class="row">
     <div class="col-md-12 text-center">
-      
-      
       <div class="album " style="width: 80%; margin: auto">
-        <div class='card-container'>
-          <div class="card">
-            <div class="mix-header">
-              <h1 style="margin-top: 100px"><%=new_link%></h1>
-            </div>
-          </div>
-        </div>
+        <%=new_link%>   
+        
         <%@mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>

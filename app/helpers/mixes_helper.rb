@@ -23,7 +23,7 @@ module MixesHelper
 
   def new_link
     if access
-      link_to "New Mix", new_user_mix_path(current_user)
+      render partial: 'mixes/new_mix_card'
     end
   end
 
