@@ -2,7 +2,8 @@
   <div class="comment">
     <div class="row">
         <div class="col-sm">
-          <%=link_to(comment.user.username, user_path(comment.user), method: :get,'data-no-turbolink' => true)%>
+          <%=link_to(comment.user.username, user_path(comment.user))%>
+          <img class="comment-profile-img"src="<%=comment.user.image%>">
         </div>
         <div class="col-sm">
           <%=delete_comment(comment)%>
@@ -10,7 +11,9 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        <%=comment.content%>
+        <div class="comment-content">
+          <%=comment.content%>
+        </div>
       </div>    
     </div>
   </div>

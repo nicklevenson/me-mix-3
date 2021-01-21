@@ -11,7 +11,7 @@
 }
 
 .comment {
- 
+  
   margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
@@ -50,6 +50,15 @@ trix-editor{
   bottom: 0;
 }
 
-.comment img {
+.comment-content img {
   height: 50px !important
+}
+
+.comment-profile-img{
+  height: 20px !important;
+  border-radius: 50%;
+}
+
+.comment .button_to {
+  text-align: right;
 }
