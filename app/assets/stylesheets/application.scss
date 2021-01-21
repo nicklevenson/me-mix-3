@@ -36,7 +36,11 @@ body {
    border: none;
    background-color: transparent;
  }
- 
+ .nav-links a{
+   border-left: solid 1px black;
+   font-style: italic;
+ }
+
  .container {
    padding: 0;
  }
@@ -45,19 +49,19 @@ body {
    width: 80%;
    height: 50px;
    align-items: center;
-   background-color: lightgrey;
+  //  background-color: lightgrey;
    border-radius: 5px;
  }
  .search-query {
-   width: 600px;
+   width: 500px;
    height: 35px;
-   border: none;
+   border: solid thin lightgray;
    border-radius: 5px;
  }
  .search-filter {
    height: 35px;
-   width: 80px;
-   border: none;
+   width: 100px;
+   border: solid thin lightgray;
    border-radius: 5px;
  }
 
