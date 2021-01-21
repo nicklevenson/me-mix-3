@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  get '/users/:id/following', to: 'users#following'
-  get '/users/:id/followers', to: 'users#followers'
+  
   resources :contents, only: [:show, :destroy]
   resources :notes, only: [:destroy]
   resources :likes, only: [:create, :destroy]
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   # resources :mixes
   resources :users do
     resources :mixes
+    get '/following', to: 'users#following'
+    get '/followers', to: 'users#followers'
   end
   resources :follow_relationships, only: [:create, :update, :destroy]
 

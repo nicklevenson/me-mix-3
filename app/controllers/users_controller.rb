@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :access_user, only: [:edit, :update]
   before_action :get_user, only: [:show, :edit, :update, :following, :followers]
-  layout 'login', except: :edit
+  layout 'login', except: [:edit, :following, :followers]
   def new
     @user = User.new
   end
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   end
 
   def get_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 end
