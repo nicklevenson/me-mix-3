@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user 
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to '/'
       else
         flash[:message] = "Incorrect Password"
         redirect_to '/login'
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   
     if @user.valid?
       session[:user_id] = @user.id
-      redirect_to user_mixes_path(@user)
+      redirect_to '/'
     else
       flash[:message] = @user.errors.full_messages.join(", ")
       redirect_to '/login'

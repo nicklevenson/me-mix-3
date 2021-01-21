@@ -1,6 +1,6 @@
 <div class="mix-container">
   <div class="mix-content">
-    <div class="jumbotron">
+    <div class="jumbotron mix-header">
       <h1><%=link_to mix.title, user_mix_path(mix.user, mix)%></h1>
       <h5>By <%=link_to mix.user.username, user_path(mix.user)%></h5>
       <img class="icon-profile-img"src="<%=mix.user.image%>">
@@ -9,11 +9,15 @@
       <div class="edit-delete">
         <%=edit_link(mix)%><%=delete_link(mix)%>
       </div>
-      <br>
+      
+
     </div>
-      <div class="jumbotron">
-        <i><%=mix.description%></i>
-      </div>
+      <%if mix.description.present?%>
+        <div class="jumbotron">
+          <i><%=mix.description%></i>
+        </div>
+      <%end%>
+
       <%mix.contents.each do |content|%>
         <div class="jumbotron">
           <%=render partial: 'contents/content', locals: {content: content}%>
@@ -23,20 +27,8 @@
         </div> 
       <%end%>
       <%=no_contents(mix)%>
-    
+      <%=render partial: 'comments/comments', locals: {mix: mix}%>
 
 
-    <div class="comments-container jumbotron">
-      <h5>Comments:</h5>  
-      <div class="comments">
-        <%= turbo_stream_from "#{mix.id}comments" %>
-        <%= turbo_frame_tag "#{mix.id}comments" do %>
-          <%=render mix.comments%>
-        <%end%>
-      </div>
-      <div class="new-comment-container">
-        <%= render partial: 'comments/new', locals: {mix: mix}%>
-      </div>
-    </div>
   </div>
 </div>

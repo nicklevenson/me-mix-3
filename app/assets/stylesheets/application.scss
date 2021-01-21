@@ -16,7 +16,9 @@
  */
 
  @import "bootstrap";
- 
+ * {
+   font-family: Georgia, 'Times New Roman', Times, serif, Cochin, Georgia, Times, 'Times New Roman', serif, 'Times New Roman', Times, serif;
+ }
 body {
   overflow-x: hidden;
 }

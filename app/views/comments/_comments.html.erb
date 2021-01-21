@@ -1,0 +1,13 @@
+
+    <div class="comments-container jumbotron">
+      <h5>Comments:</h5>  
+      <div class="comments">
+        <%= turbo_stream_from "#{mix.id}comments" %>
+        <%= turbo_frame_tag "#{mix.id}comments" do %>
+          <%=render mix.comments%>
+        <%end%>
+      </div>
+      <div class="new-comment-container">
+        <%= render partial: 'comments/new', locals: {mix: mix}%>
+      </div>
+    </div>
