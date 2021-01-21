@@ -17,7 +17,13 @@
       </div>
       <h3>Liked Mixes</h3>
       <div class="album py-5" style="width: 80%; margin: auto">
-        <%@liked_mixes.each do |m|%>
+        <%@user.liked_mixes.each do |m|%>
+          <%=render partial: 'mix_preview', locals: {mix: m}%>
+        <%end%>
+      </div>
+      <h3>Commented On</h3>
+      <div class="album py-5" style="width: 80%; margin: auto">
+        <%@user.commented_mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
       </div>

@@ -5,7 +5,7 @@ class MixesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @mixes = @user.mixes
-    @liked_mixes = @user.liked_mixes
+   
   end
 
   def new

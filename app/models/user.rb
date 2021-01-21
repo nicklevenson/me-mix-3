@@ -53,4 +53,8 @@ class User < ApplicationRecord
   def liked_mixes
     Mix.where(likes: self.likes)
   end
+
+  def commented_mixes
+    Mix.where(comments: self.comments)
+  end
 end
