@@ -15,33 +15,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
   <body class="bg-light">
-    <div class="container">
-      <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-      
-            <div class="links">
+    <br>
+    <div class="row ">
+      <div class="col-md-12">
+        <h1 class="text-center title"><a href="/welcome" class="nav-link">MEMIX</a></h1>
+        <div class="pos-f-t">
+          <nav class="navbar navbar-light ">
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+          <div class="collapse" id="navbarToggleExternalContent">
+            <div class="links  text-center">
               <%=link_to 'Feed', '/', class: ''%>
               <%=link_to 'Mix Collection', user_mixes_path(current_user), class: '' if current_user%>
               <%=link_to 'Logout', '/logout', class: '' if current_user%>
-            </div>
-          
-            <div class="row">
-              <div class="col-md-12">
-                <br>
-                <h1 class="text-center title"><a href="/welcome" class="nav-link">MEMIX</a></h1>
-                <br>
-              </div>
-            </div>
-          
+            </div>  
+          </div>
         </div>
-      
       </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
     </div>
+
     <%= render partial: 'welcome/search'%>
     <br>
     
