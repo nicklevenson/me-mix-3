@@ -20,19 +20,37 @@
 body {
   overflow-x: hidden;
 }
-.nav {
-  
+* a {
+  text-decoration: none !important;
+  color: rgb(63, 63, 63);
 }
 
  .title {
-   margin: 0;
+   font-size: 60px;
+   letter-spacing: 10px;
  }
  .container {
    padding: 0;
  }
  .search .row{
+   margin: auto;
+   width: 80%;
    height: 50px;
    align-items: center;
+   background-color: lightgrey;
+   border-radius: 5px;
+ }
+ .search-query {
+   width: 600px;
+   height: 35px;
+   border: none;
+   border-radius: 5px;
+ }
+ .search-filter {
+   height: 35px;
+   width: 80px;
+   border: none;
+   border-radius: 5px;
  }
 
  .album {
