@@ -1,11 +1,4 @@
 <div class="add-to-form">
-
-  <%flash.each do |type, msg|%>
-    <div>
-      <%= msg %>
-    </div>
-  <%end%>
-
   <%if current_user%>
     <%=form_with model: current_user.mixes.build, url: user_mixes_path(current_user) do |f|%>
       <%=fields_for Content.new do |c|%>

@@ -1,6 +1,6 @@
 <div class="form-signin">
   <div class="card">
-  <%=render partial: 'errors', locals: {user: user}%>
+  <%=render partial: 'shared/errors', locals: {obj: user}%>
   <%=profile_image(user)%>
     <%=form_for user do |f|%>
       <%=f.file_field :avatar, class: "col-sm-9"%>

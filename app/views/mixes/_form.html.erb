@@ -1,11 +1,7 @@
 
 <div class="mix-edit form-outline text-center">
 
-  <%if @mix.errors%>
-    <%@mix.errors.full_messages.each do |message|%>
-        <h4><%=message%></h4>
-    <%end%>
-  <%end%>
+<%=render partial: 'shared/errors', locals: {obj: @mix}%>
 
   <%=form_for [current_user, @mix] do |f|%>
     <%=f.text_field :title, placeholder: "Title", class: "form-control-lg text-center", style: "width: 100%"%>

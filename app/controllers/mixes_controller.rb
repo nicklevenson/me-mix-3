@@ -6,12 +6,12 @@ class MixesController < ApplicationController
     @mixes = @user.mixes
     @liked_mixes = @user.liked_mixes
   end
+
   def new
     @mix = Mix.new
-    
   end
+
   def create
-   
     @mix = current_user.mixes.find_or_create_by(mix_params)
     @mix.description = params[:mix][:description]
     if @mix.valid?
@@ -33,13 +33,15 @@ class MixesController < ApplicationController
 
   def edit
     @mix = Mix.find(params[:id])
-
   end
 
   def update
     @mix = Mix.find(params[:id])
-    @mix.update(mix_update_params)
-    redirect_to user_mix_path(current_user, @mix)
+    if @mix.update(mix_update_params)
+      redirect_to user_mix_path(current_user, @mix)
+    else
+      render :edit
+    end
   end
 
   def destroy
