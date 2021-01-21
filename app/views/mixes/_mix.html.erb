@@ -1,8 +1,13 @@
  
 <div class="mix-container">
   <div class="mix-content">
+  <%if no_contents(mix)%>
    <div class="jumbotron mix-header">
-      <%=no_contents(mix)%>
+    <h1><%=no_contents(mix)%></h1>
+   </div>
+  <%end%>
+   <div class="jumbotron mix-header">
+
       <h1><%=link_to mix.title, user_mix_path(mix.user, mix)%></h1>
       <h5>By <%=link_to mix.user.username, user_path(mix.user)%></h5>
       <img class="icon-profile-img"src="<%=mix.user.image%>">

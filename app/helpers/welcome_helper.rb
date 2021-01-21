@@ -16,10 +16,10 @@ module WelcomeHelper
       elsif params[:query] && params[:filter] == "Artwork (The Met)"
         get_art
       else
-        Mix.all
+        []
       end
     else
-      Mix.all
+      Mix.most_recent
     end
   end
 

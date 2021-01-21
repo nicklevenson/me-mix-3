@@ -30,7 +30,7 @@ module MixesHelper
   def no_contents(mix)
     if access(mix)
       if mix.contents.empty?
-        link_to "Feeling so empty. It's time to add some things to this mix!", "/"
+        link_to "Feeling empty. Time to add items to this mix!", "/welcome"
       end
     end
   end
