@@ -4,6 +4,7 @@
 
 
 .user-container .card{
+  
   width: 450px;
   overflow: hidden;
   margin: 0;
@@ -24,7 +25,9 @@
 .profile-image {
   height: 120px;
   overflow: hidden;
+  border-radius: 50% !important;
 }
+
 
 .icon-profile-img{
   height: 50px !important;
