@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <%=form_with url: '/welcome', method: :get do |f|%>
-        <%=f.label :query, "Search for:"%>
+        <%=f.label :query, "Search"%>
         <%=f.text_field :query, placeholder: "Anything"%>
-        In: <%=select_tag "filter", "<option>All</option><option>Mixes</option><option>Music (Spotify)</option><option>Poetry (Poetry Foundation)</option><option>Movies/TV (IMDB)</option><option>Books (Google Books)</option><option>Artwork (The Met)</option>".html_safe%>
+        in <%=select_tag "filter", "<option>All</option><option>Mixes</option><option>Music (Spotify)</option><option>Poetry (Poetry Foundation)</option><option>Movies/TV (IMDB)</option><option>Books (Google Books)</option><option>Artwork (The Met)</option>".html_safe%>
         <%=f.submit "Search", data: {disable_with: "Searching..."}%>
       <%end%>
-      <i>Use this to search for mixes or items and add them to your mixes!</i>
+      <i style="display: none">Use this to search for mixes or items and add them to your mixes!</i>
     </div>
   </div>
   

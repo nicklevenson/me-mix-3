@@ -38,11 +38,14 @@ body {
  }
 
  .card-container{
+  border-top: solid 15px black;
+  border-bottom: solid 15px black;
   display: inline-block;
-  width: 350px;
-  height: 400px;
+  width: 360px;
+  height: 430px;
   text-align: center;
   margin: 10px;
+  border-radius: 8px;
  }
  .card{
   display: inline-block;
