@@ -1,14 +1,14 @@
 <div class="mix-container">
   <div class="mix-content">
     <div class="jumbotron">
-      <div class="edit-delete">
-        <%=edit_link(mix)%><%=delete_link(mix)%>
-      </div>
       <h1><%=link_to mix.title, user_mix_path(mix.user, mix)%></h1>
       <h5>By <%=link_to mix.user.username, user_path(mix.user)%></h5>
       <img class="icon-profile-img"src="<%=mix.user.image%>">
       <br><br>
       <%=render partial: 'likes/like', locals: {mix: mix}%>
+      <div class="edit-delete">
+        <%=edit_link(mix)%><%=delete_link(mix)%>
+      </div>
     </div>
       <div class="jumbotron">
         <i><%=mix.description%></i>
