@@ -1,6 +1,6 @@
 module MixesHelper
   def edit_link(mix)
-    if access
+    if access(mix)
       link_to(edit_user_mix_path(mix.user, mix)) do
         "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
         <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
@@ -11,7 +11,7 @@ module MixesHelper
   end
 
   def delete_link(mix)
-    if access
+    if access(mix)
       link_to(user_mix_path(mix.user, mix), method: :delete) do
         "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
           <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
@@ -22,22 +22,22 @@ module MixesHelper
   end
 
   def new_link
-    if access
+    if current_user == params[:user_id]
       render partial: 'mixes/new_mix_card'
     end
   end
 
   def no_contents(mix)
-    if access
+    if access(mix)
       if mix.contents.empty?
         link_to "Feeling so empty. It's time to add some things to this mix!", "/"
       end
     end
   end
 
-  def access
+  def access(mix)
     if current_user
-      if current_user.id == params[:user_id].to_i
+      if current_user.id == mix.user_id
         true
       end
     end
