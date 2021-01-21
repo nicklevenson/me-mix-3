@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'login'
+  layout 'login', except: :edit
   def new
     @user = User.new
   end
