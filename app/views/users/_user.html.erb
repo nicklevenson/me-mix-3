@@ -10,34 +10,13 @@
                 </div>
                 <div class="ml-3 w-100">
                     <h4 class="mb-0 mt-0"><%=link_to user.username, user_mixes_path(user)%></h4>
-                    <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                    <div class="p-2 mt-2  d-flex justify-content-between rounded  stats">
                         <div class="d-flex flex-column"> <span class="articles">Mixes</span> <span class="number1"><%=user.mixes.count%></span> </div>
                         <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2"><%=user.followed_by.count%></span> </div>
                         <div class="d-flex flex-column"> <span class="followers">Following</span> <span class="number2"><%=user.followed_users.count%></span> </div>
                     </div>
                     
-                    <%if current_user%>
-                        <%if user.followed_by.include?(current_user)%>
-                            <%=form_for current_user.follow_relationships.find_by(followed_id: user.id), method: :delete do |f|%>
-                                <%=f.hidden_field :followed_id, value: user.id%>
-                                <div class="button mt-2 d-flex flex-row align-items-center">
-                                    <%=f.submit "Unfollow", class:"btn btn-sm btn-primary w-100"%>
-                                </div>
-                            <%end%>
-                        <%else%>
-                            <%=form_for FollowRelationship.new do |f|%>
-                                <%=f.hidden_field :follower_id, value: current_user.id%>
-                                <%=f.hidden_field :followed_id, value: user.id%>
-                                <div class="button mt-2 d-flex flex-row align-items-center">
-                                    <%=f.submit "Follow", class:"btn btn-sm btn-primary w-100"%>
-                                </div>
-                            <% end%>
-                        <%end%>
-                    <%else%>
-                    <div class="button mt-2 d-flex flex-row align-items-center">
-                        <%=link_to 'Follow', '/login',class: "btn btn-sm btn-primary w-100"%>
-                    </div>
-                    <%end%> 
+                    <%=render partial: 'users/follow', locals: {user: user}%>
                 
                 </div>
                 <br> 
