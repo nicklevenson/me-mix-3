@@ -1,6 +1,7 @@
 <div class="form-signin">
   <div class="card">
     <h3>Feeling mixed up? Create an account!</h3>
+    <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>
     <%=button_to 'Create an account with Google', '/auth/google_oauth2' %>
     <%=button_to "Create an account with Facebook",'/auth/facebook'%>
     <h3>Or</h3>
