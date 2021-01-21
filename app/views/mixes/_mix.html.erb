@@ -4,7 +4,10 @@
       <div class="edit-delete">
         <%=edit_link(mix)%><%=delete_link(mix)%>
       </div>
-      <h3><%=link_to mix.title, user_mix_path(mix.user, mix)%> by <%=link_to mix.user.username, user_path(mix.user)%></h3>
+      <h1><%=link_to mix.title, user_mix_path(mix.user, mix)%></h1>
+      <h5>By <%=link_to mix.user.username, user_path(mix.user)%></h5>
+      <img class="icon-profile-img"src="<%=mix.user.image%>">
+      <br><br>
       <%=render partial: 'likes/like', locals: {mix: mix}%>
     </div>
       <div class="jumbotron">
