@@ -1,14 +1,26 @@
 <div class="mix-index album ">
   <div class="row">
     <div class="col-md-12 text-center">
-    <%=render partial: 'users/user', locals: {user: @user}%>
+      <h2><%=@user.username%>'s Collection</h2> 
+      <%=render partial: 'users/user', locals: {user: @user}%>
+ 
+      
     </div>
+    
+          
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <h2>User Mixes</h2> 
-      <h3><%=new_link%></h3>
-      <div class="album py-5" style="width: 80%; margin: auto">
+      
+      
+      <div class="album " style="width: 80%; margin: auto">
+        <div class='card-container'>
+          <div class="card">
+            <div class="mix-header">
+              <h1 style="margin-top: 100px"><%=new_link%></h1>
+            </div>
+          </div>
+        </div>
         <%@mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
