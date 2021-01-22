@@ -26,6 +26,9 @@ body {
   text-decoration: none !important;
   color: rgb(63, 63, 63);
 }
+* button:hover {
+  
+}
 
  .title {
    font-size: 60px;
@@ -84,6 +87,7 @@ body {
   margin: 10px;
   border-radius: 8px;
  }
+ 
  .card{
   display: inline-block;
   width: 350px;
