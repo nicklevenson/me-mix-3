@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_secure_password
 
-  validates :username, presence: true
+  validates :username, presence: true, length: {in: 1..30}
   validates :email, presence: true, uniqueness: true
   validates :password, length: {in: 7..32}, :if => :password_digest_changed?
 

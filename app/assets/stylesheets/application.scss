@@ -80,8 +80,6 @@ body {
  }
 
  .card-container{
-  // border-top: solid 15px black;
-  // border-bottom: solid 15px black;
   display: inline-block;
   max-width: 100%;
   width: 360px;
@@ -99,7 +97,10 @@ body {
   text-align: center;
   overflow-y: scroll;
   margin: auto;
- 
+}
+
+.card .jumbotron {
+  padding: 5px;
 }
 
 ::-webkit-scrollbar {
