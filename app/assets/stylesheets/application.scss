@@ -21,28 +21,34 @@
  }
 body {
   overflow-x: hidden;
-
 }
+
 * a {
   text-decoration: none !important;
   color: rgb(63, 63, 63);
 }
+
 * a:hover {
   color: rgb(74, 82, 153);
 }
+
 * button:active {
   transform: rotate(90deg);
 }
+
 * button:focus, button:active {
   outline: none !important;
   border: none;
 }
+
 *:focus{
   outline: none !important;
 }
+
 input:focus, trix-editor:focus {
   box-shadow: 1px 1px 5px gray !important;
 }
+
  .title {
    font-size: 60px;
    letter-spacing: 10px;
@@ -109,6 +115,11 @@ input:focus, trix-editor:focus {
   text-align: center;
   overflow-y: scroll;
   margin: auto;
+  transition: box-shadow 1s;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 10px grey;
 }
 
 .card .jumbotron {
