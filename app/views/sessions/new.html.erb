@@ -6,13 +6,14 @@
       </div>
     <% end %>
     <h1>Sign In!</h1>
+    <%=render partial: 'login_with'%>
     <%=form_with url: '/login', method: :post do |f|%>
       <%=f.text_field :email, class:"form-control", placeholder: "Your Email"%>
       <%=f.password_field :password, class:"form-control", placeholder: "Password"%>
       <%=f.submit 'Login'%>
     <%end%>
     
-    <%=render partial: 'login_with'%>
+    
     <i>Or</i>
     <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
   </div>
