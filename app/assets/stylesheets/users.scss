@@ -4,10 +4,17 @@
 
 
 .user-container .card{
- 
-  width: 100%;
+  height: 290px;
+  width: 280px;
   overflow: hidden;
-  margin: 0;
+  margin: auto;
+  
+}
+.user-container .jumbotron{
+  margin: 2px;
+  padding: 10px;
+  width: 246px;
+  height: 253px;
 }
 
 .edit-user-image .row{
@@ -23,6 +30,8 @@
 .profile-image {
   border-radius: 50% !important;
   overflow: hidden;
+  width: min-content;
+  margin: auto;
 }
 .profile-image img {
   height: 50px;

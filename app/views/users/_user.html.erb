@@ -1,7 +1,7 @@
-<div style=" height: 300px; display: inline-block; " >
+
     <div class="container d-flex justify-content-center user-container" >
-        <div class="card p-3" style="height: 100% !important;">
-            <div class="d-flex align-items-center">
+        <div class="card p-3">
+            <div class="align-items-center mx-auto jumbotron">
                 <div class="" style="">
                     <h5 class="mb-0 mt-0"><%=link_to user.username, user_mixes_path(user)%></h5>
                       <div class="image">
@@ -19,8 +19,7 @@
                     <%=render partial: 'users/follow', locals: {user: user}%>
                 
                 </div>
-                <br> 
+               
             </div>
         </div>
     </div>
-</div>
