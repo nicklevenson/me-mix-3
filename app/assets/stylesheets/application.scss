@@ -33,7 +33,7 @@ body {
 }
 
 * button:active {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 * button:focus, button:active {
