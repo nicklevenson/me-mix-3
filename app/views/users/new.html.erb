@@ -3,7 +3,7 @@
     <h3>Feeling mixed up? Create an account!</h3>
     <%=render partial: 'sessions/login_with'%>
     <%=render partial: 'form', locals: {user: @user}%>
-    <i>Or</i>
+    <hr>
     <%=link_to 'Login', '/login', class: 'nav-item nav-link' unless current_user%>
   </div>
 </div>
