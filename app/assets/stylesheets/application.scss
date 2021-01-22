@@ -50,8 +50,12 @@ input:focus, trix-editor:focus {
 }
 
 input {
-  background-color: transparent;
   border: thin;
+  border-radius: 2px;
+}
+
+hr {
+  width: 90%;
 }
 
  .title {
