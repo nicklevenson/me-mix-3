@@ -20,6 +20,9 @@ class Mix < ApplicationRecord
   end
 
   def self.get_by_query(q)
-    by_title = all.select{|m|m.title.include?(q)}
+    by_title = all.select{|m|m.title.downcase.include?(q.downcase)}
+    content = Content.search_by_q(q)
+    by_content = all.select{|m|(m.contents & content).present?}
+    (by_title + by_content).uniq
   end
 end

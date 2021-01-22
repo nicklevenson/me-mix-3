@@ -9,4 +9,8 @@ class Content < ApplicationRecord
   def specific_notes(mix)
     self.notes.where(mix_id: mix.id)
   end
+
+  def self.search_by_q(q)
+    all.select{|c|c.title.downcase.include?(q.downcase)}
+  end
 end
