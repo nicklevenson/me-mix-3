@@ -36,7 +36,7 @@ module WelcomeHelper
   end
 
   def get_mixes
-    Mix.where(title: params[:query]) 
+    Mix.get_by_query(params[:query])
   end
   def get_music
     SpotifyApi.new.fetch_music(params[:query])

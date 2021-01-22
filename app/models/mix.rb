@@ -18,4 +18,8 @@ class Mix < ApplicationRecord
   def last_updated
     updated_at.strftime("%A, %b %d")
   end
+
+  def self.get_by_query(q)
+    by_title = all.select{|m|m.title.include?(q)}
+  end
 end
