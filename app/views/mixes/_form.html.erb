@@ -13,7 +13,7 @@
     </div>
     <%@mix.contents.each do |c|%>
     <div class="jumbotron">
-      <%=link_to "Remove this item from mix", content_path(c, mix_id: @mix.id), method: :delete%>
+      <%=link_to "Remove this item from mix", content_path(c, mix_id: @mix.id), method: :delete,data: { confirm: 'Are you sure want to delete this? Any unsaved work will not be saved when deleting.' }%>
       <br>
       <div class="card-container">
         <div class="card">
@@ -24,7 +24,7 @@
             <%=note_fields.label "Edit item note:"%>
             <%=note_fields.rich_text_area :text%>
             <%=note_fields.hidden_field :content_id, value: c.id%>
-            <%=link_to "Delete note", note_path(note_fields.object.id, mix_id: @mix.id), method: :delete%>
+            <%=link_to "Delete note", note_path(note_fields.object.id, mix_id: @mix.id), method: :delete,data: { confirm: 'Are you sure want to delete this? Any unsaved work will not be saved when deleting.' }%>
           <%end%>
         <br><br><br>
         <div class="note">
