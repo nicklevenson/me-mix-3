@@ -115,7 +115,7 @@ input:focus, trix-editor:focus {
   text-align: center;
   overflow-y: scroll;
   margin: auto;
-  transition: box-shadow 1s;
+  transition: box-shadow .5s;
 }
 
 .card:hover {
@@ -144,7 +144,7 @@ iframe {
   width: 400px;
   height: 500px;
   margin: auto;
- 
+  padding: 30px;
 }
 .form-signin .card form input{
   margin: 10px auto 10px auto;

@@ -5,14 +5,16 @@
         <%= msg %>
       </div>
     <% end %>
+    <h1>Sign In!</h1>
     <%=form_with url: '/login', method: :post do |f|%>
       <%=f.text_field :email, class:"form-control", placeholder: "Your Email"%>
       <%=f.password_field :password, class:"form-control", placeholder: "Password"%>
       <%=f.submit 'Login'%>
     <%end%>
+    
     <%= button_to 'Login with Google', '/auth/google_oauth2' %>
     <%=button_to "Log in with Facebook",'/auth/facebook'%>
-    
+    <i>Or</i>
     <%=link_to 'Create Account', new_user_path, class: 'nav-item nav-link' unless current_user%>
   </div>
 </div>
