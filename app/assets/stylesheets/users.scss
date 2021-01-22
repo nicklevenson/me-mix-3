@@ -4,14 +4,12 @@
 
 
 .user-container .card{
-  
-  width: 450px;
+ 
+  width: 100%;
   overflow: hidden;
   margin: 0;
 }
-.image {
-  width: 160px;
-}
+
 .edit-user-image .row{
   width: 160px;
 }
@@ -23,9 +21,13 @@
 }
 
 .profile-image {
-  height: 120px;
-  overflow: hidden;
   border-radius: 50% !important;
+  overflow: hidden;
+}
+.profile-image img {
+  height: 50px;
+  width: 50px;
+
 }
 
 

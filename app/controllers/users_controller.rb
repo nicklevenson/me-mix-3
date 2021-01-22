@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    params.inspect
+
     redirect_to user_mixes_path(@user)
   end
 
@@ -50,6 +50,12 @@ class UsersController < ApplicationController
   end
 
   def get_user
-    @user = User.find(params[:user_id])
+    params.inspect
+    if params[:user_id]
+      @user = User.find(params[:user_id]) 
+    else
+      @user = User.find(params[:id])
+    end
+    
   end
 end

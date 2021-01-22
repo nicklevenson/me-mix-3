@@ -1,7 +1,7 @@
 <div class="mix-index album ">
   <div class="row">
     <div class="col-md-12 text-center">
-      <h2><%=@user.username%>'s Collection</h2> 
+      <h2 style="max-width: 100%; word-wrap: break-word"><%=@user.username%>'s Collection</h2> 
       <%=render partial: 'users/user', locals: {user: @user}%>
     </div>     
   </div>

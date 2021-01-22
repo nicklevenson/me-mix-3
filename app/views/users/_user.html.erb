@@ -1,20 +1,20 @@
-<div style="width: 450px !important; height: 200px; display: inline-block; " >
+<div style=" height: 300px; display: inline-block; " >
     <div class="container d-flex justify-content-center user-container" >
         <div class="card p-3" style="height: 100% !important;">
             <div class="d-flex align-items-center">
-                <div class="image">
+                <div class="" style="">
+                    <h5 class="mb-0 mt-0"><%=link_to user.username, user_mixes_path(user)%></h5>
+                      <div class="image">
                     <%=profile_image(user)%>
                     <%if user == current_user%>
                         <%=link_to "Edit Profile", edit_user_path(user)%>
                     <%end%>
                 </div>
-                <div class="ml-3 w-100">
-                    <h4 class="mb-0 mt-0"><%=link_to user.username, user_mixes_path(user)%></h4>
-                    <div class="p-2 mt-2  d-flex justify-content-between rounded  stats">
-                        <div class="d-flex flex-column"> <span class="articles">Mixes</span> <span class="number1"><%=user.mixes.count%></span> </div>
-                        <div class="d-flex flex-column"> <%=link_to user_followers_path(user) do%><span class="followers">Followers</span><%end%> <span class="number2"><%=user.followed_by.count%></span> </div>
-                        <div class="d-flex flex-column"> <%=link_to user_following_path(user) do%><span class="followers">Following</span><%end%> <span class="number2"><%=user.followed_users.count%></span> </div>
-                    </div>
+                <div class="p-2 mt-2  d-flex justify-content-between rounded  stats">
+                    <div class="d-flex flex-column"> <div class="articles">Mixes</div> <div class="number1"><%=user.mixes.count%></div> </div>
+                    <div class="d-flex flex-column"> <%=link_to user_followers_path(user) do%><div class="followers">Followers</div><%end%> <div class="number2"><%=user.followed_by.count%></div> </div>
+                    <div class="d-flex flex-column"> <%=link_to user_following_path(user) do%><div class="followers">Following</div><%end%> <div class="number2"><%=user.followed_users.count%></div> </div>
+                </div>
                     
                     <%=render partial: 'users/follow', locals: {user: user}%>
                 
