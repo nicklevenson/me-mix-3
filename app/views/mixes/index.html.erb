@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <h2 style="max-width: 100%; word-wrap: break-word"><%=@user.username%>'s Collection</h2> 
+      <hr>
       <%=render partial: 'users/user', locals: {user: @user}%>
     </div>     
   </div>
@@ -15,18 +16,21 @@
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
       </div>
+      <hr>
       <h3>Liked Mixes</h3>
       <div class="album py-5" style="width: 80%; margin: auto">
         <%@user.liked_mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
       </div>
+      <hr>
       <h3>Commented On</h3>
       <div class="album py-5" style="width: 80%; margin: auto">
         <%@user.commented_mixes.each do |m|%>
           <%=render partial: 'mix_preview', locals: {mix: m}%>
         <%end%>
       </div>
+      
       <br>
     </div>
   </div>

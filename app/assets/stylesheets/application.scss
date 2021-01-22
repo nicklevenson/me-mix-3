@@ -49,6 +49,11 @@ input:focus, trix-editor:focus {
   box-shadow: 1px 1px 5px gray !important;
 }
 
+input {
+  background-color: transparent;
+  border: thin;
+}
+
  .title {
    font-size: 60px;
    letter-spacing: 10px;
