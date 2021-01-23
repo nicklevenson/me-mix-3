@@ -215,3 +215,25 @@ iframe {
   -o-animation: rotating 1s linear infinite;
   animation: rotating 1s linear infinite;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .pos-f-t br {
+    display: none;
+  }
+
+  .people-to-follow .jumbotron {
+    max-width: 250px
+  }
+  .people-to-follow .col-4 {
+    padding: 3px;
+  }
+  .people-to-follow .button {
+    max-width: 75%;
+  }
+}
+
