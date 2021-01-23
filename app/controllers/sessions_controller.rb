@@ -22,14 +22,19 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @user = User.create_from_omniauth(auth)
-  
-    if @user.valid?
+    if User.find_by(uid: auth['uid'], provider: auth['provider'])
+      @user = User.find_by(uid: auth['uid'], provider: auth['provider'])
       session[:user_id] = @user.id
       redirect_to '/'
     else
-      flash[:message] = @user.errors.full_messages.join(", ")
-      redirect_to '/login'
+      @user = User.create_from_omniauth(auth)
+      if @user.valid?
+        session[:user_id] = @user.id
+        redirect_to user_mix_path(User.first, Mix.first)
+      else
+        flash[:message] = @user.errors.full_messages.join(", ")
+        redirect_to '/login'
+      end
     end
   end
 
