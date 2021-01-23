@@ -7,7 +7,7 @@ class Mix < ApplicationRecord
   has_many :comments, :dependent => :destroy
   has_many :notes, :dependent => :destroy
  
-  validates :title, presence: true
+  validates :title, presence: true, length: {in: 1..30}
 
   accepts_nested_attributes_for :contents
   accepts_nested_attributes_for :notes, reject_if: proc {|attributes| attributes[:text].blank?}
