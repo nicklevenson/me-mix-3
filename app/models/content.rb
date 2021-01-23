@@ -11,6 +11,8 @@ class Content < ApplicationRecord
   end
 
   def self.search_by_q(q)
-    all.select{|c|c.title.downcase.include?(q.downcase)}
+    by_title = all.select{|c|c.title.downcase.include?(q.downcase)}
+    by_artist = all.select{|c|(c.creators & (c.creators.select{|cr|cr.downcase.include?(q.downcase)})).present?}
+    (by_title + by_artist).uniq
   end
 end
