@@ -57,4 +57,12 @@ class User < ApplicationRecord
   def commented_mixes
     Mix.where(comments: self.comments)
   end
+
+  def my_image 
+    if avatar.attached?
+      avatar
+    else
+      image
+    end
+  end
 end

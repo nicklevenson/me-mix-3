@@ -10,7 +10,7 @@
 
       <h1><%=link_to mix.title, user_mix_path(mix.user, mix)%></h1>
       <h5>By <%=link_to mix.user.username, user_path(mix.user)%></h5>
-      <img class="icon-profile-img"src="<%=mix.user.image%>">
+      <%=profile_image(mix.user)%>
       <br><br>
       <i><%=mix.last_updated%></i>
       <br><br>
