@@ -25,4 +25,9 @@ class Mix < ApplicationRecord
     by_content = all.select{|m|(m.contents & content).present?}
     (by_title + by_content).uniq
   end
+
+  def sort_contents_by_recent
+    # contents.sort_by{|c|c.mix_contents.collect{|mc|mc.updated_at}}.reverse
+    contents.sort_by{|c|c.mix_contents.select{|mc|mc.mix == self}.sort_by{|mc|mc.created_at}}
+  end
 end
