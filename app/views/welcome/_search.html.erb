@@ -4,7 +4,7 @@
       <%=form_with url: '/welcome', method: :get do |f|%>
         
         <%=f.text_field :query, placeholder: "Search for content and mixes to add to your mix!", class:"search-query"%>
-        in <%=select_tag "filter", "<option selected='selected'>#{@last_selected}</option><option>All</option><option>Mixes</option><option>Music (Spotify)</option><option>Poetry (Poetry Foundation)</option><option>Movies/TV (IMDB)</option><option>Books (Google Books)</option><option>Artwork (The Met)</option>".html_safe, class:"search-filter"%>
+        in <%=select_tag "filter", "<option selected='selected'>#{@last_selected || "All"}</option><option>All</option><option>Mixes</option><option>Music (Spotify)</option><option>Poetry (Poetry Foundation)</option><option>Movies/TV (IMDB)</option><option>Books (Google Books)</option><option>Artwork (The Met)</option>".html_safe, class:"search-filter"%>
         <%=button_tag data: {disable_with: "<svg class='rotating' xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'>
             <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/>
             </svg>".html_safe}, class:"search-icon" do%>
