@@ -1,5 +1,4 @@
 class SpotifyApi 
-
   def fetch_music(query)
     results = RSpotify::Base.search(query, "album,artist,track,playlist", limit:5)
     filtered_data = []
@@ -13,9 +12,7 @@ class SpotifyApi
       elsif result.type == 'playlist'
         filtered_data << {data_type: "music", title: result.name,creators: [result.owner.display_name], url: result.uri}
       end
-      # byebug
     end
     filtered_data
   end
-
 end
