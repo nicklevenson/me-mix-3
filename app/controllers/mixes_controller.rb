@@ -14,7 +14,7 @@ class MixesController < ApplicationController
 
   def create
     @mix = current_user.mixes.find_or_create_by(mix_params)
-    @mix.description = params[:mix][:description]
+    @mix.description = params[:mix][:description] unless params[:mix][:description].blank?
     
     if @mix.save
       if params[:content]

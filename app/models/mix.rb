@@ -15,6 +15,8 @@ class Mix < ApplicationRecord
   scope :most_recent, -> {all.order(updated_at: :desc)}
   scope :sort_by_recent, ->(ids) {most_recent.where(id: ids)}
 
+
+
   def last_updated
     updated_at.strftime("%A, %b %d")
   end
