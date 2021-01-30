@@ -1,0 +1,7 @@
+<%=render partial: 'content', locals: {content: @content}%>
+
+<h2>This belongs in these mixes:</h2>
+
+<%@mixes.each do |m|%>
+  <%=render partial: 'mixes/mix_preview', locals: {mix: m}%>
+<%end%>
