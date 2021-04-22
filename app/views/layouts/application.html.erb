@@ -29,9 +29,12 @@
           <br>
           <div class="collapse" id="navbarToggleExternalContent">
             <div class="nav-links row text-center">
-              <%=link_to 'Feed', '/', class: 'col-md-4'%>
+              <%=link_to 'Feed', '/', class: 'col-md-4' if current_user%>
               <%=link_to 'Collection', user_mixes_path(current_user), class: 'col-md-4' if current_user%>
               <%=link_to 'Logout', '/logout', class: 'col-md-4' if current_user%>
+
+              <%=link_to 'Feed', '/', class: 'col-md-6' if !current_user%>
+              <%=link_to 'Login', '/login', class: 'col-md-6' if !current_user%>
             </div>  
           </div>
         </div>
