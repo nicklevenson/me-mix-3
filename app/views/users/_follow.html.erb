@@ -1,23 +1,16 @@
-
-<%if current_user%>
-  <%if user.followed_by.include?(current_user)%>
-    <%=form_for current_user.follow_relationships.find_by(followed_id: user.id), method: :delete do |f|%>
-    <%=f.hidden_field :followed_id, value: user.id%>
-      <div class="button mt-2 d-flex flex-row align-items-center">
-        <%=f.submit "Unfollow", class:"btn btn-sm btn-dark w-100"%>
-      </div>
-    <%end%>
-  <%else%>
-    <%=form_for FollowRelationship.new do |f|%>
-      <%=f.hidden_field :follower_id, value: current_user.id%>
-      <%=f.hidden_field :followed_id, value: user.id%>
-      <div class="button mt-2 d-flex flex-row align-items-center">
-        <%=f.submit "Follow", class:"btn btn-sm btn-dark w-100"%>
-      </div>
-    <%end%>
+<%if user.followed_by.include?(current_user)%>
+  <%=form_for current_user.follow_relationships.find_by(followed_id: user.id), method: :delete do |f|%>
+  <%=f.hidden_field :followed_id, value: user.id%>
+    <div class="button mt-2 d-flex flex-row align-items-center">
+      <%=f.submit "Unfollow", class:"btn btn-sm btn-dark w-100"%>
+    </div>
   <%end%>
 <%else%>
-   <div class="button mt-2 d-flex flex-row align-items-center">
-      <%=link_to "Follow", "/login", class:"btn btn-sm btn-dark w-100"%>
+  <%=form_for FollowRelationship.new do |f|%>
+    <%=f.hidden_field :follower_id, value: current_user.id%>
+    <%=f.hidden_field :followed_id, value: user.id%>
+    <div class="button mt-2 d-flex flex-row align-items-center">
+      <%=f.submit "Follow", class:"btn btn-sm btn-dark w-100"%>
     </div>
+  <%end%>
 <%end%>
