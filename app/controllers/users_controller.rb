@@ -50,7 +50,6 @@ class UsersController < ApplicationController
   end
 
   def get_user
-    params.inspect
     if params[:user_id]
       @user = User.find(params[:user_id]) 
     else

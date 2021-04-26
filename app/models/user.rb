@@ -35,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def following_mixes
-    mixes = Mix.where(user: followed_users)
+    Mix.where(user: followed_users)
   end
 
   def self.sort_by_followers
@@ -43,11 +43,11 @@ class User < ApplicationRecord
   end
 
   def feed 
-    ids = (following_mixes + self.mixes).collect{|m|m.id}
-    Mix.sort_by_recent(ids)
+    Mix.where(user: followed_users).or(Mix.where(user: self)).order(:updated_at)
   end
+  
   def not_followed_yet
-    User.sort_by_followers - [self] - followed_users
+    User.select{|user| !user.followed_by.include?(self) && user != self}
   end
 
   def liked_mixes
