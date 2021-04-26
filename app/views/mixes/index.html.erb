@@ -3,7 +3,7 @@
     <div class="col-md-12 text-center">
       <h2 style="max-width: 100%; word-wrap: break-word"><%=@user.username%>'s Collection</h2> 
       <hr>
-      <%=render partial: 'users/user', locals: {user: @user}%>
+      <%=render partial: 'users/user', locals: {user: @user, current_user_var: current_user}%>
     </div>     
   </div>
 

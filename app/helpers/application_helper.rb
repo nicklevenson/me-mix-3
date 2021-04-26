@@ -14,10 +14,14 @@ module ApplicationHelper
   end
 
   def people_to_follow
-    if current_user
-      render partial: 'users/user', collection: current_user.not_followed_yet
-    else
-      render partial: 'users/user', collection: User.sort_by_followers
-    end
+    # if current_user
+    # current_user_var = current_user
+    # current_user.not_followed_yet.each do |user|
+    #   render partial: 'users/user', locals: {user: user, current_user_var: current_user_var}
+    # end
+    # render partial: 'users/user', collection: current_user.not_followed_yet
+    # else
+    #   render partial: 'users/user', collection: User.sort_by_followers
+    # end
   end
 end

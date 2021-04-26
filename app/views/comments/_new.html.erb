@@ -1,6 +1,6 @@
 
 <div class="new-comment">
-  <%if current_user%>
+  <!--<%if current_user%>-->
     <%=form_for mix.comments.build do |f|%>
       <%=f.hidden_field :mix_id, value: mix.id%>
       <%=f.rich_text_area :content, required: true, id: "trix#{mix.id}", class: "comment-editor", placeholder: "New Comment"%>
@@ -10,7 +10,7 @@
       </svg>
       <% end %>
     <%end%>
-  <%else%>
+  <!--<%else%>
     <%=button_to "Login to add comments", login_path, method: :get%>
-  <%end%>
+  <%end%>-->
 </div>

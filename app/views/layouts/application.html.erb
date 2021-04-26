@@ -48,7 +48,10 @@
       <h1 class="text-center text-color-white">Who to follow</h1>
       <div class="row people-to-follow">
         <div class="col-md-12 text-center">
-          <%=people_to_follow %>
+            <%current_user_var = current_user%>
+            <%current_user.not_followed_yet.each do |user|%>
+             <%=render partial: 'users/user', locals: {user: user, current_user_var: current_user_var}%>
+            <%end%>
         
         </div>
       </div>
