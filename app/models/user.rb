@@ -43,11 +43,11 @@ class User < ApplicationRecord
   end
 
   def feed 
-    Mix.where(user: followed_users).or(Mix.where(user: self)).order(:updated_at)
+    Mix.where(user: followed_users).or(Mix.where(user: self)).order(updated_at: :desc)
   end
   
   def not_followed_yet
-    User.select{|user| !user.followed_by.include?(self) && user != self}
+    User.order(updated_at: :desc).select{|user| !user.followed_by.include?(self) && user != self}
   end
 
   def liked_mixes
