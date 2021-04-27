@@ -26,11 +26,11 @@
           <i><%=mix.description%></i>
         </div>
       <%end%>
-      <%@current_user_var = current_user%>
+      <%#@current_user_var = current_user%>
     
       <%mix.contents.each do |content|%>
         <div class="jumbotron">
-          <%=render partial: 'contents/content', locals: {content: content, current_user_var: @current_user_var}%>
+          <%=render partial: 'contents/content', locals: {content: content, current_user_var: current_user_var}%>
           <%content.specific_notes(mix).each do |note|%>
             <%=render partial: 'notes/note', locals: {note: note}%>
           <%end%>

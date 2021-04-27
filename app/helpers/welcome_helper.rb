@@ -76,7 +76,7 @@ module WelcomeHelper
 
   def render_result(result)
     if result.respond_to?(:id)
-      render partial: 'mixes/mix_preview', locals: {mix: result}
+      render partial: 'mixes/mix_preview', locals: {mix: result, current_user_var: current_user}
     else
       render partial: 'contents/content', locals: {content: result, current_user_var: current_user}
     end
