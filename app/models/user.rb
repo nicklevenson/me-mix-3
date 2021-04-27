@@ -47,7 +47,7 @@ class User < ApplicationRecord
   end
   
   def not_followed_yet
-    User.order(updated_at: :desc).select{|user| !user.followed_by.include?(self) && user != self}
+    User.order(updated_at: :desc)[0..8].select{|user| !user.followed_by.include?(self) && user != self}
   end
 
   def liked_mixes
