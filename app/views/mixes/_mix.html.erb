@@ -14,7 +14,7 @@
       <br><br>
       <i><%=mix.last_updated%></i>
       <br><br>
-      <%=render partial: 'likes/like', locals: {mix: mix}%>
+      <%=render partial: 'likes/like', locals: {mix: mix, current_user_var: current_user_var}%>
       <div class="edit-delete">
         <%=edit_link(mix)%><%=delete_link(mix)%>
       </div>
