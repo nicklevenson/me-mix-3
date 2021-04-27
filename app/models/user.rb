@@ -47,7 +47,7 @@ class User < ApplicationRecord
   end
   
   def not_followed_yet
-    User.all.select{|user| !user.followed_by.include?(self) && user != self}.sort_by{|u|u.mixes.length}[0..8].reverse()
+    User.all.select{|user| !user.followed_by.include?(self) && user != self}.sort_by{|u|u.mixes.length}.reverse()[0..8]
   end
 
   def liked_mixes
