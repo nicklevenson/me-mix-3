@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     redirect_to user_mixes_path(@user)
   end
 
@@ -33,10 +32,12 @@ class UsersController < ApplicationController
   end
 
   def following
+    @current_user = current_user
     @users = @user.followed_users
   end
 
   def followers
+    @current_user = current_user
     @users = @user.followed_by
   end
   private

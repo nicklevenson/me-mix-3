@@ -1,6 +1,6 @@
 <div class="add-to-form">
-  <%if current_user_var%>
-    <%=form_with model: current_user_var.mixes.build, url: user_mixes_path(current_user_var) do |f|%>
+  <%if @current_user%>
+    <%=form_with model: @current_user.mixes.build, url: user_mixes_path(@current_user) do |f|%>
       <%=fields_for Content.new do |c|%>
         <%=c.hidden_field :data_type, value: media[:data_type]%>
         <%=c.hidden_field :title, value: media[:title]%>
@@ -15,7 +15,7 @@
 
         <%=f.text_field 'title', list: 'title', required: true, autocomplete: 'off', placeholder: "Add to new or existing mix"%> 
       <datalist id="title">
-        <%current_user_var.mixes.each do |m|%>
+        <%@current_user.mixes.each do |m|%>
           <option value="<%=m.title%>"></option>
         <%end%>
       </datalist>

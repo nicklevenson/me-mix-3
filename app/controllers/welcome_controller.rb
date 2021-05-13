@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   def index
     @results = filter || []
     @last_selected = params[:filter]
+    @current_user = current_user
   end
 end
 

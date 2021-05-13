@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_many :comments, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
-  has_many :follow_relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :follow_relationships, source: :followed
+  has_many :following, foreign_key: :follower_id, class_name: :FollowRelationship
+  has_many :followers, foreign_key: :followed_id, class_name: :FollowRelationship
 
   has_one_attached :avatar
   has_secure_password
@@ -30,12 +30,17 @@ class User < ApplicationRecord
     follow_relationships.create(follower_id: self.id, followed_id: other_user.id)
   end
 
+  def followed_users
+    User.includes(:following, :avatar_attachment).where(id: following.map{|fr|fr.followed_id})
+  end
+
   def followed_by
-    User.all.select{|user| user.followed_users.include?(self)}
+    User.includes(:followers, :avatar_attachment).where(id: followers.map{|fr|fr.follower_id})
+    # User.all.select{|user| user.followed_users.include?(self)}
   end
 
   def following_mixes
-    Mix.where(user: followed_users)
+    Mix.includes({:contents => :notes}, {:comments => :user}, :user).where(user: followed_users)
   end
 
   def self.sort_by_followers
@@ -43,19 +48,20 @@ class User < ApplicationRecord
   end
 
   def feed 
-    Mix.where(user: followed_users).or(Mix.where(user: self)).order(updated_at: :desc)
+    Mix.includes(:rich_text_description, :contents, {:comments => [:user, :rich_text_content]}, {:user => :avatar_attachment}).where(user: followed_users).or(Mix.where(user: self)).order(updated_at: :desc)
   end
   
   def not_followed_yet
-    User.all.select{|user| !user.followed_by.include?(self) && user != self}.sort_by{|u|u.mixes.length}.reverse()[0..8]
+    User.includes(:following, :followers, :avatar_attachment).where.not(id: self.followed_users.ids.push(self.id))
+    # User.all.select{|user| !user.followed_by.include?(self) && user != self}.sort_by{|u|u.mixes.length}.reverse()[0..8]
   end
 
   def liked_mixes
-    Mix.where(likes: self.likes)
+    Mix.includes(:rich_text_description, :contents, {:comments => [:user, :rich_text_content]}, {:user => [:avatar_attachment]}).where(likes: self.likes)
   end
 
   def commented_mixes
-    Mix.where(comments: self.comments)
+    Mix.includes(:rich_text_description, :contents, {:comments => [:user, :rich_text_content]}, {:user => [:avatar_attachment]}).where(comments: self.comments)
   end
 
   def my_image 

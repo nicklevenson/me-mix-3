@@ -5,8 +5,7 @@
         <%=render_piece(content)%>
       </div>
       
-      <%current_user_var = current_user_var%>
-      <%=render partial: 'mixes/add_to_form', locals: {media: content, current_user_var: current_user_var}%>
+      <%=render partial: 'mixes/add_to_form', locals: {media: content}%>
     </div>
   </div>
 </div>

@@ -1,9 +1,7 @@
 
     <div class="text-center">
       <h1><%=@user.username%>'s Followers</h1>
-
-      <%current_user_var = current_user%>
        <%@users.each do |u|%>
-        <%=render partial: 'users/user', locals: {user: u, current_user_var: current_user_var}%>
+        <%=render partial: 'users/user', locals: {user: u}%>
       <%end%>
     </div>

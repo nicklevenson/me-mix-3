@@ -3,7 +3,7 @@
 
 <%=render partial: 'shared/errors', locals: {obj: @mix}%>
 
-  <%=form_for [current_user, @mix] do |f|%>
+  <%=form_for [@current_user, @mix] do |f|%>
     <%=f.text_field :title, placeholder: "Title", class: "form-control-lg text-center", style: "width: 100%"%>
     <br><br>
     <div class="jumbotron">

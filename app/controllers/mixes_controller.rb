@@ -1,14 +1,15 @@
 class MixesController < ApplicationController
   include MixesHelper
-  before_action :logged_in?
+  before_action :logged_in?, :set_current_user
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:avatar_attachment, :following,
+            :mixes => [:rich_text_description, {:comments => [:user, :rich_text_content]}, :contents]
+            ).find(params[:user_id])
     @mixes = @user.mixes
-    @current_user = current_user
   end
 
-  def new
+  def new 
     @mix = Mix.new
   end
 
@@ -30,7 +31,7 @@ class MixesController < ApplicationController
   end
 
   def show
-    @mix = Mix.find(params[:id])
+    @mix = Mix.includes(:user, {:comments => [:user, :rich_text_content]}).find(params[:id])
   end
 
   def edit
@@ -53,6 +54,10 @@ class MixesController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @current_user = current_user
+  end
 
   def mix_params
     params.require(:mix).permit(:title)

@@ -22,7 +22,7 @@ module MixesHelper
   end
 
   def new_link
-    if current_user.id == params[:user_id].to_i
+    if @current_user.id == params[:user_id].to_i
       render partial: 'mixes/new_mix_card'
     end
   end
@@ -36,8 +36,8 @@ module MixesHelper
   end
 
   def access(mix)
-    if current_user
-      if current_user.id == mix.user_id
+    if @current_user
+      if @current_user.id == mix.user_id
         true
       end
     end

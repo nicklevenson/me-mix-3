@@ -1,6 +1,6 @@
 
-<%if user.followed_by.include?(current_user_var)%>
-  <%=form_for current_user_var.follow_relationships.find_by(followed_id: user.id), method: :delete do |f|%>
+<%if @current_user.followed_users.include?(user)%>
+  <%=form_for FollowRelationship.find_by(followed_id: user.id, follower_id: @current_user.id), method: :delete do |f|%>
   <%=f.hidden_field :followed_id, value: user.id%>
     <div class="button mt-2 d-flex flex-row align-items-center">
       <%=f.submit "Unfollow", class:"btn btn-sm btn-dark w-100"%>
@@ -8,7 +8,7 @@
   <%end%>
 <%else%>
   <%=form_for FollowRelationship.new do |f|%>
-    <%=f.hidden_field :follower_id, value: current_user_var.id%>
+    <%=f.hidden_field :follower_id, value: @current_user.id%>
     <%=f.hidden_field :followed_id, value: user.id%>
     <div class="button mt-2 d-flex flex-row align-items-center">
       <%=f.submit "Follow", class:"btn btn-sm btn-dark w-100"%>

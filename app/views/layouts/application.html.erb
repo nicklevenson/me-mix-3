@@ -30,8 +30,8 @@
           <div class="collapse" id="navbarToggleExternalContent">
             <div class="nav-links row text-center">
               <%=link_to 'Feed', '/', class: 'col-md-4'%>
-              <%=link_to 'Collection', user_mixes_path(current_user), class: 'col-md-4' if current_user%>
-              <%=link_to 'Logout', '/logout', class: 'col-md-4' if current_user%>
+              <%=link_to 'Collection', user_mixes_path(@current_user), class: 'col-md-4' if @current_user%>
+              <%=link_to 'Logout', '/logout', class: 'col-md-4' if @current_user%>
             </div>  
           </div>
         </div>
@@ -48,11 +48,11 @@
       <h1 class="text-center text-color-white">Who to follow</h1>
       <div class="row people-to-follow">
         <div class="col-md-12 text-center">
-            <%current_user_var = current_user%>
-            <%current_user.not_followed_yet.each do |user|%>
-             <%=render partial: 'users/user', locals: {user: user, current_user_var: current_user_var}%>
+          <%if @current_user%>
+            <%@current_user.not_followed_yet.each do |user|%>
+             <%=render partial: 'users/user', locals: {user: user}%>
             <%end%>
-        
+          <%end%>
         </div>
       </div>
     </div>
